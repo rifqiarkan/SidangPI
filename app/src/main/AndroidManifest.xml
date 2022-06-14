@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Xsportapp">
         <activity
+            android:name=".ScreenSwimming"
+            android:exported="false" />
+        <activity
+            android:name=".ScreenBadminton"
+            android:exported="false" />
+        <activity
             android:name=".screen_futsal"
             android:exported="false" />
         <activity

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen_futsal">
+    tools:context=".ScreenSwimming">
 
     <View
         android:id="@+id/view2"
@@ -24,7 +24,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="138dp"
         android:fontFamily="@font/mmedium"
-        android:text="FUTSAL"
+        android:text="SWIMMING"
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mregular"
-                android:text="Ramuna Futsal"
+                android:text="Bintang Sport Center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mlight"
-                android:text="Details of Ramuna"
+                android:text="Details of BSC"
                 android:textColor="@color/gray"
                 android:textSize="12sp" />
 
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mregular"
                 android:paddingTop="10dp"
-                android:text="Futsal Town"
+                android:text="Galaxy Tirtamas"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -108,7 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mlight"
-                android:text="Details of Town"
+                android:text="Details of Tirtamas"
                 android:textColor="@color/gray"
                 android:textSize="12sp" />
 
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mregular"
                 android:paddingTop="10dp"
-                android:text="Futsal AWK"
+                android:text="Colombus Waterpark"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mlight"
-                android:text="Details of AWK"
+                android:text="Details of Colombus"
                 android:textColor="@color/gray"
                 android:textSize="12sp" />
 
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mregular"
                 android:paddingTop="10dp"
-                android:text="Sayan Futsal Family"
+                android:text="k"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -200,6 +200,5 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

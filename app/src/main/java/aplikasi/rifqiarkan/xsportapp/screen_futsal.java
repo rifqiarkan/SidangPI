@@ -11,28 +11,15 @@ import com.google.android.material.button.MaterialButton;
 public class screen_futsal extends AppCompatActivity {
 
     public static class BUNDLE{
-        public static String KEY_LOGIN= "KEY_LOGIN";
+        public static String KE_LOGIN= "EY_LOGIN";
 
     }
 
-    MaterialButton buttonLogin;
+    MaterialButton butonLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_futsal);
-        initView();
-        setupOnClick();
-    }
-
-    private void setupOnClick() {
-        buttonLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ScreenSport.class);
-            intent.putExtra(BUNDLE.KEY_LOGIN, "arkan@gmail.com");
-            startActivity(intent);
-        });
-    }
-
-    private void initView() {
-        buttonLogin = findViewById(R.id.button);
+        String KEY_FROM_FUTSAL = getIntent().getStringExtra(ScreenSport.BUNDLE.KEY_FUTSAL);
     }
 }
