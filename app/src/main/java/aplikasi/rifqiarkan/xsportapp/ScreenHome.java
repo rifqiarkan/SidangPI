@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -27,7 +26,7 @@ public class ScreenHome extends AppCompatActivity {
 
     private void setupOnClick() {
         buttonLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ScreenSport.class);
+            Intent intent = new Intent(this, ScreenSportActivity.class);
             intent.putExtra(BUNDLE.KEY_LOGIN, "KEY_LOGIN");
             startActivity(intent);
         });

@@ -16,10 +16,10 @@
             android:name=".ScreenBadminton"
             android:exported="false" />
         <activity
-            android:name=".screen_futsal"
+            android:name=".ScreenDetailSportActivity"
             android:exported="false" />
         <activity
-            android:name=".ScreenSport"
+            android:name=".ScreenSportActivity"
             android:exported="false" />
         <activity
             android:name=".ScreenHome"

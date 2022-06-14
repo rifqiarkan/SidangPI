@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(goScreenHome);
                 finish();
             }
-        },10000);
+        },1000);
     }
 }

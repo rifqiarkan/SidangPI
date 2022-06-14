@@ -1,26 +1,21 @@
 package aplikasi.rifqiarkan.xsportapp.model;
 
+import java.util.ArrayList;
+
 public class SportPlace {
-    private String title, subTitle, location;
+    private String id, name;
+    private ArrayList<Place> place;
 
-    public SportPlace(String title,String subTitle){
-        this.title = title;
-        this.subTitle = subTitle;
+    public String getId() {
+        return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public ArrayList<Place> getPlaces() {
+        return place;
     }
 
-    public String getSubTitle() {
-        return subTitle;
-    }
-
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
-    }
 }

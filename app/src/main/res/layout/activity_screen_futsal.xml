@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen_futsal">
+    tools:context=".ScreenDetailSportActivity">
 
     <View
         android:id="@+id/view2"
@@ -17,14 +17,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="138dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="138dp"
         android:fontFamily="@font/mmedium"
-        android:text="FUTSAL"
+        tools:text="FUTSAL"
         android:textColor="@color/white"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,124 +79,10 @@
                 android:layout_marginBottom="16dp"
                 android:background="#EDEDED" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:text="Ramuna Futsal"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of Ramuna"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:paddingTop="10dp"
-                android:text="Futsal Town"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of Town"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:paddingTop="10dp"
-                android:text="Futsal AWK"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of AWK"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:paddingTop="10dp"
-                android:text="Sayan Futsal Family"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of SFF"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:paddingTop="10dp"
-                android:text="Estadio Futsal"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of Estadio"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:paddingTop="10dp"
-                android:text="Kampoeng Futsal Ali Baba 2"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of Alibaba 2"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:paddingTop="10dp"
-                android:text="Ramuna Futsal"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mlight"
-                android:text="Details of Ramuna"
-                android:textColor="@color/gray"
-                android:textSize="12sp" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSportDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
