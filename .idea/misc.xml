@@ -7,11 +7,12 @@
         <entry key="..\:/xsportapp/app/src/main/res/drawable/bg_button_white.xml" value="0.19583333333333333" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_badminton.xml" value="0.1796875" />
-        <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_detail_place.xml" value="0.22" />
-        <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_futsal.xml" value="0.1796875" />
+        <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_detail_place.xml" value="0.16666666666666666" />
+        <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_futsal.xml" value="0.22" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_home.xml" value="0.12" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_sport.xml" value="0.22" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_swimming.xml" value="0.1796875" />
+        <entry key="..\:/xsportapp/app/src/main/res/layout/activity_screen_tentang.xml" value="0.22" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/item_detail_sport_place.xml" value="0.1796875" />
         <entry key="..\:/xsportapp/app/src/main/res/layout/item_sport.xml" value="0.1796875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23489583333333333" />

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Xsportapp">
         <activity
+            android:name=".ScreenTentang"
+            android:exported="false" />
+        <activity
             android:name=".ScreenDetailPlaceActivity"
             android:exported="false" />
         <activity
