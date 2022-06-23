@@ -3,7 +3,7 @@ package aplikasi.rifqiarkan.xsportapp.model;
 import java.util.ArrayList;
 
 public class SportPlace {
-    private String id, name;
+    private String id, name, icon;
     private ArrayList<Place> place;
 
     public String getId() {
@@ -18,4 +18,7 @@ public class SportPlace {
         return place;
     }
 
+    public String getIcon() {
+        return icon;
+    }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -17,15 +18,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import aplikasi.rifqiarkan.xsportapp.adapter.SportDetailAdapter;
+import aplikasi.rifqiarkan.xsportapp.adapter.SportPlaceAdapter;
 import aplikasi.rifqiarkan.xsportapp.model.Place;
-import aplikasi.rifqiarkan.xsportapp.model.SportPlace;
 
 public class ScreenDetailSportActivity extends AppCompatActivity {
 
     public static class BUNDLE{
-        public static String KE_LOGIN= "EY_LOGIN";
-
+        public static final String KEY_ID_SPORT = "KEY_ID_SPORT";
+        public static String KEY_ID_PLACE= "KEY_ID_PLACE";
     }
 
     TextView tvTitle;
@@ -34,23 +34,28 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
 
-    SportDetailAdapter sportDetailAdapter;
+    SportPlaceAdapter sportDetailAdapter;
 
     ArrayList<Place> places = new ArrayList<>();
 
     String name = "";
+    String idSport  = "";
+
+    //fungsi yang pertama kali di jalankan saat halaman dibuka
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_futsal);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        String id = getIntent().getStringExtra(ScreenSportActivity.BUNDLE.KEY_DATA);
+        idSport = getIntent().getStringExtra(ScreenSportActivity.BUNDLE.KEY_DATA);
         name = getIntent().getStringExtra(ScreenSportActivity.BUNDLE.KEY_TITLE);
-        getDetailSport(id);
+        getDetailSport(idSport);
+
     }
 
+    //logic get data detail tempat sport dari firebase
     private void getDetailSport(String id) {
-        getReference("sports/"+String.valueOf(Integer.parseInt(id) - 1)+"/place").addValueEventListener(new ValueEventListener() {
+        getReference("sports/"+ (Integer.parseInt(id) - 1) +"/place").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 places.clear();
@@ -72,15 +77,23 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
     }
 
 
+    //untuk mendklarasikan id
     private void initView() {
         tvTitle = findViewById(R.id.tvTitle);
         recyclerView = findViewById(R.id.rvSportDetail);
-        sportDetailAdapter = new SportDetailAdapter(this, places);
+        sportDetailAdapter = new SportPlaceAdapter(this, places);
+        sportDetailAdapter.setOnEventListener(position -> {
+            Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);
+            intent.putExtra(BUNDLE.KEY_ID_PLACE, position);
+            intent.putExtra(BUNDLE.KEY_ID_SPORT, idSport);
+            startActivity(intent);
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(sportDetailAdapter);
         tvTitle.setText(name);
     }
 
+    //untuk referensi ke database
     private DatabaseReference getReference(String path) {
         return firebaseDatabase.getReference(path);
     }

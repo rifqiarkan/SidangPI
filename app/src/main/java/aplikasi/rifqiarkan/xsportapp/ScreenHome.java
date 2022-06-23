@@ -15,9 +15,7 @@ public class ScreenHome extends AppCompatActivity {
 
     }
 
-    MaterialButton buttonTentang;
-
-    MaterialButton buttonLogin;
+    MaterialButton buttonTentang, buttonLogin, buttonLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,21 +28,22 @@ public class ScreenHome extends AppCompatActivity {
     private void setupOnClick() {
         buttonLogin.setOnClickListener(view -> {
             Intent intent = new Intent(this, ScreenSportActivity.class);
-            intent.putExtra(BUNDLE.KEY_LOGIN, "KEY_LOGIN");
             startActivity(intent);
         });
         buttonTentang.setOnClickListener(view -> {
             Intent intent = new Intent(this, ScreenTentang.class);
-            intent.putExtra(BUNDLE.KEY_TENTANG, "KEY_TENTANG");
             startActivity(intent);
+        });
+        buttonLogout.setOnClickListener(view -> {
+            finish();
         });
     }
 
     private void initView() {
         buttonLogin = findViewById(R.id.button);
-        {
-            buttonTentang = findViewById(R.id.button2);
-        }
+        buttonTentang = findViewById(R.id.button2);
+        buttonLogout = findViewById(R.id.btnLogout);
+
 
     }
 

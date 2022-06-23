@@ -1,11 +1,9 @@
 package aplikasi.rifqiarkan.xsportapp.model;
 
-import android.provider.MediaStore;
-
 import java.util.ArrayList;
 
 public class Place {
-    private String icon, location, name;
+    private String icon, location, name, phoneNumber, operational, information;
     private ArrayList<Image> images;
 
     public String getIcon() {
@@ -38,5 +36,17 @@ public class Place {
 
     public void setImages(ArrayList<Image> images) {
         this.images = images;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getOperational() {
+        return operational;
+    }
+
+    public String getInformation() {
+        return information;
     }
 }
