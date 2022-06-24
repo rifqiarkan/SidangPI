@@ -21,12 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="138dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="138dp"
         android:fontFamily="@font/mmedium"
         tools:text="FUTSAL"
         android:textColor="@color/white"
-        android:textSize="26sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +35,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
         app:cardCornerRadius="8dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,14 +47,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="453dp"
+            android:layout_height="500dp"
             android:background="@color/white"
             android:elevation="4dp"
             android:orientation="vertical"
-            android:paddingLeft="24dp"
-            android:paddingTop="30dp"
-            android:paddingRight="24dp"
-            android:paddingBottom="30dp">
+            android:paddingLeft="15dp"
+            android:paddingTop="20dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                 android:fontFamily="@font/mmedium"
                 android:text="PLACE"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,13 +70,13 @@
                 android:fontFamily="@font/mlight"
                 android:text="places you want to go to"
                 android:textColor="@color/gray"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
                 android:background="#EDEDED" />
 
             <androidx.recyclerview.widget.RecyclerView

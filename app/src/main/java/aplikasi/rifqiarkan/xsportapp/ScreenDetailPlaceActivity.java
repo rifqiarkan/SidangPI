@@ -57,13 +57,14 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
         tvLoc = findViewById(R.id.tvLocation);
         tvContact = findViewById(R.id.tvContact);
 //        ivPlace = findViewById(R.id.rvImage);
-//        tvOperational = findViewById(R.id.)
+        tvOperational = findViewById(R.id.tvOperational);
 
         //nyetak dari database ke view
         tvTitlePlace.setText(dataResult.getName());
         tvInfo.setText(dataResult.getInformation());
         tvLoc.setText(dataResult.getLocation());
         tvContact.setText(dataResult.getPhoneNumber());
+        tvOperational.setText(dataResult.getOperational());
 
     }
 
