@@ -18,7 +18,7 @@ import aplikasi.rifqiarkan.xsportapp.OnEventListener;
 import aplikasi.rifqiarkan.xsportapp.R;
 import aplikasi.rifqiarkan.xsportapp.model.Place;
 
-public class SportPlaceAdapter extends RecyclerView.Adapter<SportPlaceAdapter.ViewHolder> {
+public class SportDetailAdapter extends RecyclerView.Adapter<SportDetailAdapter.ViewHolder> {
 
     private Context context;
 
@@ -30,20 +30,20 @@ public class SportPlaceAdapter extends RecyclerView.Adapter<SportPlaceAdapter.Vi
         this.onEventListener = onEventListener;
     }
 
-    public SportPlaceAdapter(Context context, List<Place> places) {
+    public SportDetailAdapter(Context context, List<Place> places) {
         this.context = context;
         this.places = places;
     }
     @NonNull
     @Override
-    public SportPlaceAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SportDetailAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_detail_sport_place, parent, false);
+                .inflate(R.layout.item_detail_sport, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SportPlaceAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SportDetailAdapter.ViewHolder holder, int position) {
         Place place = places.get(position);
         holder.bind(place, context);
         holder.itemView.setOnClickListener(view -> {

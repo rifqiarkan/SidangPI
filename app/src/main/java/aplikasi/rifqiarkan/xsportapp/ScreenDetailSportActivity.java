@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import aplikasi.rifqiarkan.xsportapp.adapter.SportPlaceAdapter;
+import aplikasi.rifqiarkan.xsportapp.adapter.SportDetailAdapter;
 import aplikasi.rifqiarkan.xsportapp.model.Place;
 
 public class ScreenDetailSportActivity extends AppCompatActivity {
@@ -34,7 +34,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
 
-    SportPlaceAdapter sportDetailAdapter;
+    SportDetailAdapter sportDetailAdapter;
 
     ArrayList<Place> places = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_futsal);
+        setContentView(R.layout.activity_screen_detail_sport);
         firebaseDatabase = FirebaseDatabase.getInstance();
         idSport = getIntent().getStringExtra(ScreenSportActivity.BUNDLE.KEY_DATA);
         name = getIntent().getStringExtra(ScreenSportActivity.BUNDLE.KEY_TITLE);
@@ -81,7 +81,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
     private void initView() {
         tvTitle = findViewById(R.id.tvTitle);
         recyclerView = findViewById(R.id.rvSportDetail);
-        sportDetailAdapter = new SportPlaceAdapter(this, places);
+        sportDetailAdapter = new SportDetailAdapter(this, places);
         sportDetailAdapter.setOnEventListener(position -> {
             Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);
             intent.putExtra(BUNDLE.KEY_ID_PLACE, position);

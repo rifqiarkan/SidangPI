@@ -30,108 +30,133 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2">
 
-        <LinearLayout
-            android:id="@+id/layout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="365dp"
-            android:background="@color/white"
-            android:elevation="4dp"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="30dp">
+            android:layout_height="365dp">
 
-            <TextView
-                android:id="@+id/tvPlace"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/mregular"
-                android:text="RAMUNA FUTSAL"
-                android:textColor="@color/black"
-                android:textSize="21sp" />
-
-            <View
+            <LinearLayout
+                android:id="@+id/layout"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="13dp"
-                android:background="#EDEDED" />
+                android:layout_height="365dp"
+                android:background="@color/white"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="30dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Information"
-                android:textSize="16sp"
-                android:fontFamily="@font/mregular"
-                android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/tvPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/mregular"
+                    android:text="RAMUNA FUTSAL"
+                    android:textColor="@color/black"
+                    android:textSize="21sp" />
 
-            <TextView
-                android:id="@+id/tvInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Information"
-                android:textSize="13sp"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/gray"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="13dp"
+                    android:background="#EDEDED" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Information"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/mregular"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/tvInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Information"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/gray"/>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:text="Location"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mregular"
+                    android:text="Location"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Location"
-                android:textSize="13sp"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/gray"/>
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Location"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/gray"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:text="Contact"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mregular"
+                    android:text="Contact"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvContact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Contact"
-                android:textSize="13sp"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/gray"/>
+                <TextView
+                    android:id="@+id/tvContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Contact"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/gray"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mregular"
-                android:text="Operational"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mregular"
+                    android:text="Operational"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvOperational"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Operational"
-                android:textSize="13sp"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/gray"/>
+                <TextView
+                    android:id="@+id/tvOperational"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Operational"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/gray"/>
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mregular"
+                    android:text="Price"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Price"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/mlight"
+                    android:textColor="@color/gray"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
 
     </androidx.cardview.widget.CardView>
 
@@ -140,15 +165,16 @@
         android:id="@+id/tvPic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/mmedium"
         android:text="Pictures"
         android:textColor="@color/black"
         android:textSize="14sp"
-        android:layout_marginTop="30dp"
 
-        app:layout_constraintTop_toBottomOf="@+id/cvplace"
-        tools:layout_editor_absoluteX="24dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvplace"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

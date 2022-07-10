@@ -21,6 +21,8 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
 
     TextView tvTitlePlace, tvInfo, tvLoc, tvContact, tvOperational, ivPlace;
 
+    private
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,7 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
         tvInfo = findViewById(R.id.tvInfo);
         tvLoc = findViewById(R.id.tvLocation);
         tvContact = findViewById(R.id.tvContact);
-//        ivPlace = findViewById(R.id.rvImage);
+        ivPlace = findViewById(R.id.rvImage);
         tvOperational = findViewById(R.id.tvOperational);
 
         //nyetak dari database ke view
@@ -65,6 +67,7 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
         tvLoc.setText(dataResult.getLocation());
         tvContact.setText(dataResult.getPhoneNumber());
         tvOperational.setText(dataResult.getOperational());
+        //ivPlace.setText(dataResult.getImages());
 
     }
 

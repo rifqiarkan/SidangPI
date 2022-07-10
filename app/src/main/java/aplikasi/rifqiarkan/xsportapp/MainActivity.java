@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent goScreenHome = new Intent(MainActivity.this,ScreenHome.class);
+                Intent goScreenHome = new Intent(MainActivity.this, ScreenHomeActivity.class);
                 startActivity(goScreenHome);
                 finish();
             }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.google.android.material.button.MaterialButton;
 
-public class ScreenHome extends AppCompatActivity {
+public class ScreenHomeActivity extends AppCompatActivity {
 
     public static class BUNDLE {
         public static String KEY_LOGIN = "KEY_LOGIN";
@@ -40,8 +40,8 @@ public class ScreenHome extends AppCompatActivity {
     }
 
     private void initView() {
-        buttonLogin = findViewById(R.id.button);
-        buttonTentang = findViewById(R.id.button2);
+        buttonLogin = findViewById(R.id.btn_masuk);
+        buttonTentang = findViewById(R.id.btn_tentang);
         buttonLogout = findViewById(R.id.btnLogout);
 
 

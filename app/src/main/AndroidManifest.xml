@@ -28,7 +28,7 @@
             android:name=".ScreenSportActivity"
             android:exported="false" />
         <activity
-            android:name=".ScreenHome"
+            android:name=".ScreenHomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
