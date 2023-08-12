@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,13 +27,11 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
 
-    TextView tvTitlePlace, tvInfo, tvLoc, tvContact, tvOperational;
+    TextView tvTitlePlace, tvInfo, tvLoc, tvContact, tvOperational, tvPrice;
 
     LinearLayout ctaGmaps;
 
-    RecyclerView rvImages;
-
-    private SportDetailPlaceAdapter sportDetailPlaceAdapter;
+    ImageView ivLocationMaps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,19 +70,21 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
         tvContact = findViewById(R.id.tvContact);
         ctaGmaps = findViewById(R.id.ctaGmaps);
         tvOperational = findViewById(R.id.tvOperational);
-        sportDetailPlaceAdapter = new SportDetailPlaceAdapter(this, dataResult.getImages());
-        rvImages = findViewById(R.id.rvImage);
-        rvImages.setAdapter(sportDetailPlaceAdapter);
-        rvImages.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
-                false));
+        tvPrice = findViewById(R.id.tvPrice);
+        ivLocationMaps = findViewById(R.id.ivLocationMaps);
+        Glide.with(this)
+                .load(dataResult.getImageMaps())
+                .centerCrop()
+                .into(ivLocationMaps);
         //nyetak dari database ke view
         tvTitlePlace.setText(dataResult.getName());
         tvInfo.setText(dataResult.getInformation());
         tvLoc.setText(dataResult.getLocation());
         tvContact.setText(dataResult.getPhoneNumber());
         tvOperational.setText(dataResult.getOperational());
+        tvPrice.setText(dataResult.getPrice());
         //ivPlace.setText(dataResult.getImages());
-        ctaGmaps.setOnClickListener(view ->
+        ivLocationMaps.setOnClickListener(view ->
                 goToMaps(dataResult.getLatitude(), dataResult.getLongitude())
         );
     }

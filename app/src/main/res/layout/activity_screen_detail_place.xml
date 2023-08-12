@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ScreenDetailPlaceActivity">
+    android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view2"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="236dp"
-        android:background="@color/bluePrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="24dp"
+        tools:context=".ScreenDetailPlaceActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvplace"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="15dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2">
-
-        <ScrollView
+        <View
+            android:id="@+id/view2"
             android:layout_width="match_parent"
-            android:layout_height="365dp">
+            android:layout_height="236dp"
+            android:background="@color/bluePrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            app:cardCornerRadius="8dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view2">
 
             <LinearLayout
                 android:id="@+id/layout"
                 android:layout_width="match_parent"
-                android:layout_height="365dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:elevation="4dp"
                 android:orientation="vertical"
@@ -66,27 +67,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Information"
-                    android:textSize="16sp"
                     android:fontFamily="@font/mregular"
-                    android:textColor="@color/black"/>
+                    android:text="Information"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tvInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Information"
-                    android:textSize="13sp"
                     android:fontFamily="@font/mlight"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    tools:text="Information" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/mregular"
                     android:text="Location"
-                    android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -94,33 +95,34 @@
                     android:id="@+id/tvLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Location"
-                    android:textSize="13sp"
                     android:fontFamily="@font/mlight"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    tools:text="Location" />
 
                 <LinearLayout
                     android:id="@+id/ctaGmaps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp">
+
                     <ImageView
-                        android:src="@drawable/ic_baseline_location_on_24"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_location_on_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Gmaps"/>
+                        android:text="Gmaps" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/mregular"
                     android:text="Contact"
-                    android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -128,17 +130,17 @@
                     android:id="@+id/tvContact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Contact"
-                    android:textSize="13sp"
                     android:fontFamily="@font/mlight"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    tools:text="Contact" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/mregular"
                     android:text="Operational"
-                    android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -146,17 +148,17 @@
                     android:id="@+id/tvOperational"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Operational"
-                    android:textSize="13sp"
                     android:fontFamily="@font/mlight"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    tools:text="Operational" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/mregular"
                     android:text="Price"
-                    android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -164,66 +166,64 @@
                     android:id="@+id/tvPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Price"
-                    android:textSize="13sp"
                     android:fontFamily="@font/mlight"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    tools:text="Price" />
 
             </LinearLayout>
-        </ScrollView>
 
 
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:id="@+id/tvPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/mmedium"
+            android:text="Pictures"
+            android:textColor="@color/black"
+            android:textSize="14sp"
 
-    <TextView
-        android:id="@+id/tvPic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/mmedium"
-        android:text="Pictures"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvplace" />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvplace"/>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="10dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPic">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPic">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvImage"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            </androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/ivLocationMaps"
+                    android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_height="250dp">
+
+                </ImageView>
+            </LinearLayout>
 
 
-
-    </androidx.cardview.widget.CardView>
-
+        </androidx.cardview.widget.CardView>
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

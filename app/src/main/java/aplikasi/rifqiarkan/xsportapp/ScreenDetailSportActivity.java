@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import aplikasi.rifqiarkan.xsportapp.adapter.SportDetailAdapter;
+import aplikasi.rifqiarkan.xsportapp.adapter.SportNearbyAdapter;
 import aplikasi.rifqiarkan.xsportapp.model.Place;
 
 public class ScreenDetailSportActivity extends AppCompatActivity {
@@ -30,11 +31,12 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
 
     TextView tvTitle;
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerViewNearby;
 
     FirebaseDatabase firebaseDatabase;
 
     SportDetailAdapter sportDetailAdapter;
+    SportNearbyAdapter sportNearbyAdapter;
 
     ArrayList<Place> places = new ArrayList<>();
 
@@ -81,6 +83,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
     private void initView() {
         tvTitle = findViewById(R.id.tvTitle);
         recyclerView = findViewById(R.id.rvSportDetail);
+        recyclerViewNearby = findViewById(R.id.rvSportNearby);
         sportDetailAdapter = new SportDetailAdapter(this, places);
         sportDetailAdapter.setOnEventListener(position -> {
             Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);
@@ -88,8 +91,21 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
             intent.putExtra(BUNDLE.KEY_ID_SPORT, idSport);
             startActivity(intent);
         });
+
+        sportNearbyAdapter = new SportNearbyAdapter(this, places);
+        sportNearbyAdapter.setOnEventListener(position -> {
+            Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);
+            intent.putExtra(BUNDLE.KEY_ID_PLACE, position);
+            intent.putExtra(BUNDLE.KEY_ID_SPORT, idSport);
+            startActivity(intent);
+        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(sportDetailAdapter);
+
+        recyclerViewNearby.setLayoutManager(new LinearLayoutManager(this,  LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewNearby.setAdapter(sportNearbyAdapter);
+
         tvTitle.setText(name);
     }
 

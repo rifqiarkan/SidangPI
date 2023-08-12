@@ -3,8 +3,8 @@ package aplikasi.rifqiarkan.xsportapp.model;
 import java.util.ArrayList;
 
 public class Place {
-    private String icon, location, name, phoneNumber, operational, information, latitude, longitude;
-    private ArrayList<Image> images;
+    private String icon, location, name, phoneNumber, operational, information, latitude, longitude, price;
+    private String imageMaps;
 
     public String getIcon() {
         return icon;
@@ -30,14 +30,6 @@ public class Place {
         this.name = name;
     }
 
-    public ArrayList<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(ArrayList<Image> images) {
-        this.images = images;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -56,5 +48,13 @@ public class Place {
 
     public String getLongitude() {
         return longitude;
+    }
+
+    public String getImageMaps() {
+        return imageMaps;
+    }
+
+    public String getPrice() {
+        return price;
     }
 }
