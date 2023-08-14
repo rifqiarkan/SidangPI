@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.google.firebase.database.DataSnapshot;
@@ -38,19 +41,25 @@ public class ScreenSportActivity extends AppCompatActivity {
 
     SportAdapter sportAdapter;
 
+    private Dialog loadingDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_sport);
         firebaseDatabase = FirebaseDatabase.getInstance();
+        loadingDialog = new Dialog(this);
+        View loadingView = LayoutInflater.from(this).inflate(R.layout.dialog_loading, null);
+        loadingDialog.setContentView(loadingView);
+        loadingDialog.setCancelable(false);
         getSports();
     }
 
     private void initView() {
         sportAdapter = new SportAdapter(this, sports);
         recyclerView = findViewById(R.id.rvSport);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(sportAdapter);
         sportAdapter.setOnEventListener(data -> {
             Intent intent = new Intent(this, ScreenDetailSportActivity.class);
@@ -62,6 +71,7 @@ public class ScreenSportActivity extends AppCompatActivity {
 
 
     private void getSports() {
+        showLoadingDialog();
         getReference("sports").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -72,6 +82,7 @@ public class ScreenSportActivity extends AppCompatActivity {
                         SportPlace dataResult = dataSnapshot.getValue(SportPlace.class);
                         sports.add(dataResult);
                     }
+                    hideLoadingDialog();
                     initView();
                 }
             }
@@ -89,5 +100,15 @@ public class ScreenSportActivity extends AppCompatActivity {
         return firebaseDatabase.getReference(path);
     }
 
+    private void showLoadingDialog() {
+        if (loadingDialog != null && !loadingDialog.isShowing()) {
+            loadingDialog.show();
+        }
+    }
 
+    private void hideLoadingDialog() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+    }
 }

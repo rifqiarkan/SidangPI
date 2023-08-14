@@ -12,11 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import aplikasi.rifqiarkan.xsportapp.OnEventListener;
 import aplikasi.rifqiarkan.xsportapp.R;
 import aplikasi.rifqiarkan.xsportapp.model.Place;
+import aplikasi.rifqiarkan.xsportapp.model.PlaceResponse;
 
 public class SportNearbyAdapter extends RecyclerView.Adapter<SportNearbyAdapter.ViewHolder> {
 
@@ -28,6 +31,17 @@ public class SportNearbyAdapter extends RecyclerView.Adapter<SportNearbyAdapter.
 
     public void setOnEventListener(OnEventListener<String> onEventListener) {
         this.onEventListener = onEventListener;
+    }
+
+    public void sortPlacesByDistance() {
+        // Menggunakan Comparator untuk mengurutkan tempat berdasarkan jarak terdekat
+        Collections.sort(places, new Comparator<Place>() {
+            @Override
+            public int compare(Place place1, Place place2) {
+                return Double.compare(place1.getDistance(), place2.getDistance());
+            }
+        });
+        notifyDataSetChanged();
     }
 
     public SportNearbyAdapter(Context context, List<Place> places) {
@@ -53,7 +67,7 @@ public class SportNearbyAdapter extends RecyclerView.Adapter<SportNearbyAdapter.
 
     @Override
     public int getItemCount() {
-        return places.size();
+        return 5;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,7 +82,7 @@ public class SportNearbyAdapter extends RecyclerView.Adapter<SportNearbyAdapter.
 
         public void bind(Place sportPlace, Context context) {
             tvName.setText(sportPlace.getName());
-            tvDistance.setText(sportPlace.getLocation());
+            tvDistance.setText(sportPlace.getDistance() + "km");
             Glide.with(context)
                     .load(sportPlace.getIcon())
                     .centerCrop()

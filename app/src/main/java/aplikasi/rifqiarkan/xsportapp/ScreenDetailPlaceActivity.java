@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -20,16 +18,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import aplikasi.rifqiarkan.xsportapp.adapter.SportDetailPlaceAdapter;
-import aplikasi.rifqiarkan.xsportapp.model.Place;
+import aplikasi.rifqiarkan.xsportapp.model.PlaceResponse;
 
 public class ScreenDetailPlaceActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
 
     TextView tvTitlePlace, tvInfo, tvLoc, tvContact, tvOperational, tvPrice;
-
-    LinearLayout ctaGmaps;
 
     ImageView ivLocationMaps;
 
@@ -50,7 +45,7 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    Place dataResult = snapshot.getValue(Place.class);
+                    PlaceResponse dataResult = snapshot.getValue(PlaceResponse.class);
                     initView(dataResult);
                 }
             }
@@ -62,13 +57,12 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
         });
     }
 
-    private void initView(Place dataResult) {
+    private void initView(PlaceResponse dataResult) {
         //deklarasi id
         tvTitlePlace = findViewById(R.id.tvPlace);
         tvInfo = findViewById(R.id.tvInfo);
         tvLoc = findViewById(R.id.tvLocation);
         tvContact = findViewById(R.id.tvContact);
-        ctaGmaps = findViewById(R.id.ctaGmaps);
         tvOperational = findViewById(R.id.tvOperational);
         tvPrice = findViewById(R.id.tvPrice);
         ivLocationMaps = findViewById(R.id.ivLocationMaps);

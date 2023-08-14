@@ -35,10 +35,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         app:cardCornerRadius="8dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +52,9 @@
             android:background="@color/white"
             android:elevation="4dp"
             android:orientation="vertical"
-            android:paddingLeft="15dp"
+            android:paddingLeft="8dp"
             android:paddingTop="20dp"
-            android:paddingRight="15dp"
+            android:paddingRight="8dp"
             android:paddingBottom="1dp">
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mlight"
-                android:text="places near you"
+                android:text="place near you"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
 
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mlight"
-                android:text="places you want to go to"
+                android:text="place you want to go to"
                 android:textColor="@color/gray"
                 android:textSize="14sp" />
 

@@ -44,8 +44,8 @@ public class SportDetailAdapter extends RecyclerView.Adapter<SportDetailAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull SportDetailAdapter.ViewHolder holder, int position) {
-        Place place = places.get(position);
-        holder.bind(place, context);
+        Place placeResponse = places.get(position);
+        holder.bind(placeResponse, context);
         holder.itemView.setOnClickListener(view -> {
             onEventListener.onClickListener(String.valueOf(position));
         });
@@ -66,11 +66,11 @@ public class SportDetailAdapter extends RecyclerView.Adapter<SportDetailAdapter.
             ivPlace = itemView.findViewById(R.id.ivPlace);
         }
 
-        public void bind(Place sportPlace, Context context) {
-            tvName.setText(sportPlace.getName());
-            tvLocation.setText(sportPlace.getLocation());
+        public void bind(Place sportPlaces, Context context) {
+            tvName.setText(sportPlaces.getName());
+            tvLocation.setText(sportPlaces.getLocation());
             Glide.with(context)
-                    .load(sportPlace.getIcon())
+                    .load(sportPlaces.getIcon())
                     .centerCrop()
                     .into(ivPlace);
         }

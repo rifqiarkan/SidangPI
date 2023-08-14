@@ -17,7 +17,6 @@ import java.util.List;
 import aplikasi.rifqiarkan.xsportapp.OnEventListener;
 import aplikasi.rifqiarkan.xsportapp.R;
 import aplikasi.rifqiarkan.xsportapp.model.Image;
-import aplikasi.rifqiarkan.xsportapp.model.Place;
 
 public class SportDetailPlaceAdapter extends RecyclerView.Adapter<SportDetailPlaceAdapter.ViewHolder> {
 

@@ -1,14 +1,14 @@
 package aplikasi.rifqiarkan.xsportapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,12 +21,14 @@ import java.util.ArrayList;
 import aplikasi.rifqiarkan.xsportapp.adapter.SportDetailAdapter;
 import aplikasi.rifqiarkan.xsportapp.adapter.SportNearbyAdapter;
 import aplikasi.rifqiarkan.xsportapp.model.Place;
+import aplikasi.rifqiarkan.xsportapp.model.PlaceResponse;
+import aplikasi.rifqiarkan.xsportapp.utis.DistanceCalculator;
 
 public class ScreenDetailSportActivity extends AppCompatActivity {
 
-    public static class BUNDLE{
+    public static class BUNDLE {
         public static final String KEY_ID_SPORT = "KEY_ID_SPORT";
-        public static String KEY_ID_PLACE= "KEY_ID_PLACE";
+        public static String KEY_ID_PLACE = "KEY_ID_PLACE";
     }
 
     TextView tvTitle;
@@ -38,10 +40,10 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
     SportDetailAdapter sportDetailAdapter;
     SportNearbyAdapter sportNearbyAdapter;
 
-    ArrayList<Place> places = new ArrayList<>();
+    ArrayList<Place> placeResponses = new ArrayList<>();
 
     String name = "";
-    String idSport  = "";
+    String idSport = "";
 
     //fungsi yang pertama kali di jalankan saat halaman dibuka
     @Override
@@ -57,15 +59,27 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
 
     //logic get data detail tempat sport dari firebase
     private void getDetailSport(String id) {
-        getReference("sports/"+ (Integer.parseInt(id) - 1) +"/place").addValueEventListener(new ValueEventListener() {
+        getReference("sports/" + (Integer.parseInt(id) - 1) + "/place").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                places.clear();
+                placeResponses.clear();
                 Log.d("testFirebase", "onDataChange: ");
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        Place dataResult = dataSnapshot.getValue(Place.class);
-                        places.add(dataResult);
+                        PlaceResponse dataResult = dataSnapshot.getValue(PlaceResponse.class);
+                        placeResponses.add(new Place(
+                                dataResult.getIcon(),
+                                dataResult.getLocation(),
+                                dataResult.getName(),
+                                dataResult.getPhoneNumber(),
+                                dataResult.getOperational(),
+                                dataResult.getInformation(),
+                                Double.parseDouble(dataResult.getLatitude()),
+                                Double.parseDouble(dataResult.getLongitude()),
+                                dataResult.getPrice(),
+                                dataResult.getImageMaps(),
+                                DistanceCalculator.getDistanceUserToLocation(Double.parseDouble(dataResult.getLatitude()), Double.parseDouble(dataResult.getLongitude()))
+                        ));
                     }
                     initView();
                 }
@@ -84,7 +98,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         recyclerView = findViewById(R.id.rvSportDetail);
         recyclerViewNearby = findViewById(R.id.rvSportNearby);
-        sportDetailAdapter = new SportDetailAdapter(this, places);
+        sportDetailAdapter = new SportDetailAdapter(this, placeResponses);
         sportDetailAdapter.setOnEventListener(position -> {
             Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);
             intent.putExtra(BUNDLE.KEY_ID_PLACE, position);
@@ -92,7 +106,8 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        sportNearbyAdapter = new SportNearbyAdapter(this, places);
+        sportNearbyAdapter = new SportNearbyAdapter(this, placeResponses);
+        sportNearbyAdapter.sortPlacesByDistance(); // Mengurutkan tempat berdasarkan jarak terdekat
         sportNearbyAdapter.setOnEventListener(position -> {
             Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);
             intent.putExtra(BUNDLE.KEY_ID_PLACE, position);
@@ -103,7 +118,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(sportDetailAdapter);
 
-        recyclerViewNearby.setLayoutManager(new LinearLayoutManager(this,  LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewNearby.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNearby.setAdapter(sportNearbyAdapter);
 
         tvTitle.setText(name);

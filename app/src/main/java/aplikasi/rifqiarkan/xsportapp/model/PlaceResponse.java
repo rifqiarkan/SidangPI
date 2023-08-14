@@ -1,25 +1,8 @@
 package aplikasi.rifqiarkan.xsportapp.model;
 
-public class Place {
-    private String icon, location, name, phoneNumber, operational, information, price;
+public class PlaceResponse {
+    private String icon, location, name, phoneNumber, operational, information, latitude, longitude, price;
     private String imageMaps;
-    private Double distance;
-
-    private double latitude, longitude;
-
-    public Place(String icon, String location, String name, String phoneNumber, String operational, String information, double latitude, double longitude, String price, String imageMaps, Double distance) {
-        this.icon = icon;
-        this.location = location;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.operational = operational;
-        this.information = information;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.price = price;
-        this.imageMaps = imageMaps;
-        this.distance = distance;
-    }
 
     public String getIcon() {
         return icon;
@@ -57,11 +40,11 @@ public class Place {
         return information;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
@@ -72,9 +55,4 @@ public class Place {
     public String getPrice() {
         return price;
     }
-
-    public Double getDistance() {
-        return distance;
-    }
-
 }
