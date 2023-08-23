@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import aplikasi.rifqiarkan.xsportapp.adapter.SportDetailAdapter;
 import aplikasi.rifqiarkan.xsportapp.adapter.SportNearbyAdapter;
@@ -41,6 +43,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
     SportNearbyAdapter sportNearbyAdapter;
 
     ArrayList<Place> placeResponses = new ArrayList<>();
+    ArrayList<Place> placeResponsesNearby = new ArrayList<>();
 
     String name = "";
     String idSport = "";
@@ -67,6 +70,19 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         PlaceResponse dataResult = dataSnapshot.getValue(PlaceResponse.class);
+                        placeResponsesNearby.add(new Place(
+                                dataResult.getIcon(),
+                                dataResult.getLocation(),
+                                dataResult.getName(),
+                                dataResult.getPhoneNumber(),
+                                dataResult.getOperational(),
+                                dataResult.getInformation(),
+                                Double.parseDouble(dataResult.getLatitude()),
+                                Double.parseDouble(dataResult.getLongitude()),
+                                dataResult.getPrice(),
+                                dataResult.getImageMaps(),
+                                DistanceCalculator.calculateDistance(Double.parseDouble(dataResult.getLatitude()), Double.parseDouble(dataResult.getLongitude()))
+                        ));
                         placeResponses.add(new Place(
                                 dataResult.getIcon(),
                                 dataResult.getLocation(),
@@ -78,7 +94,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
                                 Double.parseDouble(dataResult.getLongitude()),
                                 dataResult.getPrice(),
                                 dataResult.getImageMaps(),
-                                DistanceCalculator.getDistanceUserToLocation(Double.parseDouble(dataResult.getLatitude()), Double.parseDouble(dataResult.getLongitude()))
+                                0.0
                         ));
                     }
                     initView();
@@ -106,7 +122,7 @@ public class ScreenDetailSportActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        sportNearbyAdapter = new SportNearbyAdapter(this, placeResponses);
+        sportNearbyAdapter = new SportNearbyAdapter(this, placeResponsesNearby);
         sportNearbyAdapter.sortPlacesByDistance(); // Mengurutkan tempat berdasarkan jarak terdekat
         sportNearbyAdapter.setOnEventListener(position -> {
             Intent intent = new Intent(this, ScreenDetailPlaceActivity.class);

@@ -9,13 +9,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class ScreenHomeActivity extends AppCompatActivity {
 
-    public static class BUNDLE {
-        public static String KEY_LOGIN = "KEY_LOGIN";
-        public static String KEY_TENTANG = "KEY_TENTANG";
-
-    }
-
-    MaterialButton buttonTentang, buttonLogin, buttonLogout;
+    MaterialButton buttonTentang, buttonExplore, buttonLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +20,12 @@ public class ScreenHomeActivity extends AppCompatActivity {
     }
 
     private void setupOnClick() {
-        buttonLogin.setOnClickListener(view -> {
+        buttonExplore.setOnClickListener(view -> {
             Intent intent = new Intent(this, ScreenSportActivity.class);
             startActivity(intent);
         });
         buttonTentang.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ScreenTentang.class);
+            Intent intent = new Intent(this, ScreenAboutActivity.class);
             startActivity(intent);
         });
         buttonLogout.setOnClickListener(view -> {
@@ -40,7 +34,7 @@ public class ScreenHomeActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        buttonLogin = findViewById(R.id.btn_masuk);
+        buttonExplore = findViewById(R.id.btn_masuk);
         buttonTentang = findViewById(R.id.btn_tentang);
         buttonLogout = findViewById(R.id.btnLogout);
 

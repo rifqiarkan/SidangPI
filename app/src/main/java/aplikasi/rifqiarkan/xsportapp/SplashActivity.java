@@ -22,8 +22,11 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import aplikasi.rifqiarkan.xsportapp.utis.DistanceCalculator;
 
-public class MainActivity extends AppCompatActivity {
-
+public class SplashActivity extends AppCompatActivity {
+    /**
+     * FusedLocationProviderClient
+     * digunakan untuk mendapatkan latitude & longitude user
+     */
     private FusedLocationProviderClient fusedLocationClient;
 
 
@@ -32,8 +35,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**
+         * set variable fusedLocationClient
+         */
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        /**
+         * funtion untuk mendapatkan permission lokasi dari device user
+         */
         getLocationPermissions();
 
     }
@@ -45,11 +54,17 @@ public class MainActivity extends AppCompatActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                        /**
+                         * ketika diberikan akses oleh user, lakukan aksi ini untuk mendapatkan lokasi terkini.
+                         */
                         getCurrentLocation();
                     }
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+                        /**
+                         * ketika tidak diberikan akses oleh user, muncul peringatan permission harus diberikan.
+                         */
                         Toast.makeText(activity, "onPermissionDenied", Toast.LENGTH_SHORT).show();
 
                     }
@@ -63,17 +78,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, location -> {
+                    /**
+                     * ketika lokasi terkini didaptakan, masukkan menjadi variable global
+                     * lalu arahkan user ke halaman home
+                     */
                     if (location != null) {
                         double latitude = location.getLatitude();
                         double longitude = location.getLongitude();
@@ -91,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent goScreenHome = new Intent(MainActivity.this, ScreenHomeActivity.class);
+                Intent goScreenHome = new Intent(SplashActivity.this, ScreenHomeActivity.class);
                 startActivity(goScreenHome);
                 finish();
             }

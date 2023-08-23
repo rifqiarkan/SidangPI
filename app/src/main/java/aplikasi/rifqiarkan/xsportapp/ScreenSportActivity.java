@@ -31,8 +31,6 @@ public class ScreenSportActivity extends AppCompatActivity {
         public static String KEY_TITLE = "KEY_TITLE";
     }
 
-    LinearLayout buttonFutsal, buttonBadminton, button;
-
     RecyclerView recyclerView;
 
     FirebaseDatabase firebaseDatabase;

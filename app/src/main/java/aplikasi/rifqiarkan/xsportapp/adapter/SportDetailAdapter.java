@@ -47,7 +47,7 @@ public class SportDetailAdapter extends RecyclerView.Adapter<SportDetailAdapter.
         Place placeResponse = places.get(position);
         holder.bind(placeResponse, context);
         holder.itemView.setOnClickListener(view -> {
-            onEventListener.onClickListener(String.valueOf(position));
+            onEventListener.onClickListener(placeResponse.getName());
         });
     }
 

@@ -61,13 +61,18 @@ public class SportNearbyAdapter extends RecyclerView.Adapter<SportNearbyAdapter.
         Place place = places.get(position);
         holder.bind(place, context);
         holder.itemView.setOnClickListener(view -> {
-            onEventListener.onClickListener(String.valueOf(position));
+            onEventListener.onClickListener(place.getName());
         });
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        Integer data = places.size();
+        if (data >= 5) {
+            return 5;
+        } else {
+            return data;
+        }
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

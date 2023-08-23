@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,12 +40,23 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
     private void getDetailPlace(String idSport, String idPlace) {
         Log.d("datanya", idSport);
 
-        getReference("sports/" + (Integer.parseInt(idSport) - 1) + "/place/" + idPlace).addValueEventListener(new ValueEventListener() {
+        getReference("sports/" + (Integer.parseInt(idSport) - 1) + "/place/").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    PlaceResponse dataResult = snapshot.getValue(PlaceResponse.class);
-                    initView(dataResult);
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        // Dapatkan objek dari setiap elemen array.
+                        PlaceResponse dataResult = snapshot1.getValue(PlaceResponse.class);
+
+                        // Cek jika ID objek sesuai dengan yang Anda cari.
+                        if (dataResult.getName().equals(idPlace)) {
+                            // Objek dengan ID yang sesuai ditemukan.
+                            // Lakukan apa yang Anda inginkan dengan objek ini.
+                            initView(dataResult);
+
+                            // Misalnya, objek sekarang berisi data yang sesuai dengan ID yang Anda cari.
+                        }
+                    }
                 }
             }
 
@@ -86,7 +96,7 @@ public class ScreenDetailPlaceActivity extends AppCompatActivity {
 
     void goToMaps(String latitude, String longitude) {
         Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                Uri.parse("google.navigation:q=" + latitude+ "," + longitude));
+                Uri.parse("google.navigation:q=" + latitude + "," + longitude));
         startActivity(intent);
     }
 
