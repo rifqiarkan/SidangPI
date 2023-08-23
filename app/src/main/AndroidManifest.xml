@@ -18,12 +18,6 @@
             android:name=".ScreenDetailPlaceActivity"
             android:exported="false" />
         <activity
-            android:name=".ScreenSwimming"
-            android:exported="false" />
-        <activity
-            android:name=".ScreenBadminton"
-            android:exported="false" />
-        <activity
             android:name=".ScreenDetailSportActivity"
             android:exported="false" />
         <activity
